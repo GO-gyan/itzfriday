@@ -458,7 +458,7 @@ gitBotSubscriber.on("message",function( channel, message)
 
 	//FETCH JSON DATA
 	jsonObject = fetchJsonObject(message);	//set processFurther to false on error
-	jsonObject.authToken = '046d5f647b08c04f3099e650532d2b8246925ae0';
+	jsonObject.authToken = 'a47f907e06d867cf49600d318e02878cdaaac871';
 
 	//SORT EXECUTION SEQUENCE IN THE ORDER OF CONTEXT
 	intents.sort(function(a,b){
@@ -613,7 +613,7 @@ gitBotSubscriber.on("message",function( channel, message)
 					else
 					{
 						console.log("Issue has been created with id : "+res);
-						gitBotPublisher.publish("delivery","Issue has been created with id : "+res);
+						gitBotPublisher.publish("delivery2","Issue has been created with id : "+res);
 					}
 				});
 			}	
