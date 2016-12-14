@@ -8,6 +8,7 @@ services:
     links:
       - db
       - chatctrl
+      - droid
     environment:
        MONGO_URL: 'mongodb://db/itzfridayDB'
        REDIS_URL: 'redis://redis'
@@ -15,8 +16,17 @@ services:
       - front-tier
       - back-tier
   chatctrl:
-    image: redis-server:0.1.0
+    image: chat-ctrl:0.1.0
     build: './chat-controller'
+    links:
+      - redis
+    environment:
+       REDIS_URL: 'redis://redis'
+    networks:
+      - back-tier
+  droid:
+    image: droid:0.1.0
+    build: './droid'
     links:
       - redis
     environment:
